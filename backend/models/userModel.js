@@ -4,35 +4,36 @@ const userTypes = ["user", "seller", "admin"];
 
 const userSchema = new mongoose.Schema({
   username: {
-    type: "string",
+    type: String,
     required: true,
     unique: true,
   },
   email: {
-    type: "string",
+    type: String,
     required: true,
     unique: true,
   },
   password: {
-    type: "string",
+    type: String,
     required: true,
   },
   type_of_user: {
     //enum
-    type: "string",
+    type: String,
     enum: userTypes,
     required: true,
+    default:"user"
   },
   dl_number: {
-    type: "string",
+    type: String,
     required: false,
   },
   date_range: {
-    type: "string",
+    type: String,
     required: false,
   },
   seller_rating: {
-    type: "number",
+    type: Number,
     required: false,
   },
 });
