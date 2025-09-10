@@ -1,58 +1,37 @@
-const { userModel } = require("../../models/userModel")
+const { userModel } = require("../../models/userModel");
+const {
+  checkUserExistance,
+  createUser,
+  createJwt,
+} = require("./helperFunctions");
 
-async function SignUp(req,res){
+async function SignUp(req, res) {
+  try {
+    const userDetails = req.body;
 
-    try{
+    const existance = await checkUserExistance(userDetails);
 
-        // user input 
-        //validate 
-        //password hash 
-        //db check if user exists 
-        //create user 
-        // create jwt 
-        // respond with jwt 
+    if (existance) {
+      return res.json({
+        msg: "this user already exists",
+      });
+    } else {
+      const currUser = await createUser(userDetails);
+      const token = createJwt(currUser);
 
-        const userDetails = req.body
-
-        const currUser = await userModel.findOne({
-            username : userDetails.username,
-            email : userDetails.email
-        })
-
-        if(currUser){
-            return res.json({
-                msg :"user already exists"
-            })
-        }else{
-            const currCreatedUser = await userModel.create(userDetails)
-            if(currCreatedUser){
-                return res.status(200).json({
-                    msg : "user created successfully"
-                })
-            }
-        }
-
-
-
-
-
-
-    }catch(e){
-        return res.status(500).json({
-
-            msg : "There is some error",
-            error : e.message || "Sample error message"
-
-        })
+      return res.status(200).json({
+        msg: "user created successfully",
+        token: `Bearer ${token}`,
+      });
     }
-
-
-
-
+  } catch (e) {
+    return res.status(500).json({
+      msg: "Some error occured",
+      error: e.message || "No error message",
+    });
+  }
 }
 
-
-
-module.exports={
-    SignUp
-}
+module.exports = {
+  SignUp,
+};
