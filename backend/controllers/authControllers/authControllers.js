@@ -3,6 +3,8 @@ const {
   checkUserExistance,
   createUser,
   createJwt,
+  checkPassword,
+  hashPassword,
 } = require("./helperFunctions");
 
 async function SignUp(req, res) {
@@ -36,21 +38,55 @@ async function SignUp(req, res) {
   }
 }
 
+async function Singin(req, res) {
+  //userdetails from req body
+  // user existance check
+  // compare password if user exists
+  //if all clear return jwt
+  //else return error
+  try {
+    const userDetails = req.body;
+    const existance = await checkUserExistance(userDetails);
+    if (existance) {
+      const pwd = userDetails.password;
+      const currUser = await userModel.findOne({
+        username: userDetails.username,
+        email: userDetails.email,
+      });
+      const hash_pwd = currUser.password;
+      const check = await checkPassword(pwd, hash_pwd);
 
-async function Singin(req,res){
-
-    //userdetails from req body 
-    // user existance check 
-    // compare password if user exists 
-    //if all clear return jwt 
-    //else return error 
-
-
-
+      if (check) {
+        const token = createJwt(currUser);
+        if (token) {
+          return res.status(200).json({
+            msg: "Signup successful",
+            token: `Bearer ${token}`,
+          });
+        } else {
+          return res.json({
+            msg: "Error creating token",
+          });
+        }
+      } else {
+        return res.json({
+          msg: "Incorrect password",
+        });
+      }
+    } else {
+      return res.json({
+        msg: "User does not exist",
+      });
+    }
+  } catch (e) {
+    res.status(500).json({
+      msg: "Some error occured",
+      error: e.message || "No error message",
+    });
+  }
 }
-
-
 
 module.exports = {
   SignUp,
+  Singin
 };
