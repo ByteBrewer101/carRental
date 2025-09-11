@@ -46,6 +46,13 @@ dataRouter.post('/create_listing', async(req,res)=>{
 })
 
 
+dataRouter.get("/sampleget",(req,res)=>{
+    return res.json({
+        msg :"you hit sample get"
+    })
+})
+
+
 
 
 

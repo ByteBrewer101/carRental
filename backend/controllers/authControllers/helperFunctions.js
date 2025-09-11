@@ -39,6 +39,7 @@ function createJwt(userDetails) {
   const modifiedUserDetails = {
     username: userDetails.username,
     email: userDetails.email,
+    role : userDetails.type_of_user,
     userId: userDetails._id,
   };
 
