@@ -60,7 +60,7 @@ async function Singin(req, res) {
         const token = createJwt(currUser);
         if (token) {
           return res.status(200).json({
-            msg: "Signup successful",
+            msg: "Signin successful",
             token: `Bearer ${token}`,
           });
         } else {
