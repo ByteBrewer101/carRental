@@ -4,20 +4,21 @@ import { HomePage } from "./Pages/HomePage"
 import { SignUpPage } from "./Pages/SignUpPage"
 import { SignInPage } from "./Pages/SignInPage"
 
+
 function App() {
 
   return (
     <>
-    <BrowserRouter>
-    <Routes>
-    <Route path="/" element={<HomePage/>}/>
-    <Route path="/signup" element={<SignUpPage/>}/>
-    <Route path="/signin" element={<SignInPage/>}/>
-    </Routes>
-    </BrowserRouter>
       
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/signin" element={<SignInPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App

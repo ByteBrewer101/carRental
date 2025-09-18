@@ -12,11 +12,11 @@ import {
 export function SelectDemo() {
   return (
     <Select>
-      <SelectTrigger className="w-full text-white">
+      <SelectTrigger className="w-full text-white  ">
         <SelectValue placeholder="Select your role" />
       </SelectTrigger>
-      <SelectContent className="bg-white/10">
-        <SelectGroup>
+      <SelectContent className="dark">
+        <SelectGroup >
           <SelectItem value="user">User</SelectItem>
           <SelectItem value="seller">Seller</SelectItem>
         </SelectGroup>

@@ -1,19 +1,36 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SelectDemo } from "./CustomSelect";
+import { MorphingText } from "./ui/morphing-text";
 
 export function SignUp() {
   return (
     <>
-      <div className="bg-white/10 rounded-sm border-2 border-white/20 w-[80%] flex justify-center p-4">
-        <div className=" w-full"></div>
+      <div className=" rounded-sm z-10 w-[80%] flex justify-center p-4">
+        <div className=" w-full flex items-center text-white  ">
+          <MorphingText
+            texts={[
+              "Drive your dream car today",
+              "Affordable rentals, anytime",
+              "Luxury & economy cars available",
+              "Easy booking in minutes",
+              "No hidden charges, ever",
+              "24/7 roadside assistance",
+              "Explore new destinations hassle-free",
+              "Weekend deals you can’t miss",
+              "Comfort, style, and safety guaranteed",
+              "Rent it today, ride it your way",
+            ]}
+            className="text-5xl"
+          />
+        </div>
         <div className=" w-full p-4 min-h-[500px] flex flex-col justify-center items-center">
-          <div className="space-y-4 w-[70%] flex flex-col items-center ">
+          <div className=" backdrop-blur-xs bg-white/5 border-1 border-white/5 p-8 rounded-lg space-y-4 w-[70%] flex flex-col items-center ">
             <h1 className="text-white font-bold text-3xl">SignUp</h1>
-            <Input placeholder="Username" />
-            <Input placeholder="Email" />
-            <Input placeholder="Password" />
-            <SelectDemo/>
+            <Input className="dark text-white" placeholder="Username" />
+            <Input className="dark text-white" placeholder="Email" />
+            <Input className="dark text-white" placeholder="Password" />
+            <SelectDemo />
             <Button className="w-[40%]" size="sm" variant={"outline"}>
               Submit
             </Button>
