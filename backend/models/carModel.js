@@ -39,6 +39,7 @@ const carSchema = new mongoose.Schema({
     rating:{
         type: Number
     }
+    
 
 });
 

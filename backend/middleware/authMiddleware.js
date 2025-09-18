@@ -20,6 +20,8 @@ function authMiddleware(req, res, next) {
           msg: result.msg,
         });
       } else {
+        const userDetails = result.currUser
+        req.user = userDetails
         next();
       }
     }
