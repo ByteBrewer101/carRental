@@ -2,8 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SelectDemo } from "./CustomSelect";
 import { MorphingText } from "./ui/morphing-text";
+import { useNavigate } from "react-router-dom";
 
 export function SignUp() {
+  const nav = useNavigate();
+  function handleSignIn() {
+    nav("/signin");
+  }
   return (
     <>
       <div className=" rounded-sm  z-10 w-[80%] flex justify-center p-4">
@@ -34,6 +39,17 @@ export function SignUp() {
             <Button className="w-[40%]" size="sm" variant={"outline"}>
               Submit
             </Button>
+            <p className="text-white">
+              Have an account?
+              <span className="ml-2">
+                <button
+                  onClick={handleSignIn}
+                  className="text-blue-500 underline"
+                >
+                  Sign In
+                </button>
+              </span>
+            </p>
           </div>
         </div>
       </div>
