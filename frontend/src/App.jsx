@@ -3,13 +3,15 @@ import { BrowserRouter } from "react-router-dom"
 import { HomePage } from "./Pages/HomePage"
 import { SignUpPage } from "./Pages/SignUpPage"
 import { SignInPage } from "./Pages/SignInPage"
+import { GlobalWrapper } from "./wrappers/GlobalWrapper"
 
 
 function App() {
 
   return (
     <>
-      
+
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -17,6 +19,7 @@ function App() {
           <Route path="/signin" element={<SignInPage />} />
         </Routes>
       </BrowserRouter>
+  
     </>
   );
 }

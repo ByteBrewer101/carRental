@@ -6,8 +6,8 @@ import { MorphingText } from "./ui/morphing-text";
 export function SignUp() {
   return (
     <>
-      <div className=" rounded-sm z-10 w-[80%] flex justify-center p-4">
-        <div className=" w-full flex items-center text-white  ">
+      <div className=" rounded-sm  z-10 w-[80%] flex justify-center p-4">
+        <div className=" md:flex hidden w-full  items-center text-white  ">
           <MorphingText
             texts={[
               "Drive your dream car today",
@@ -25,7 +25,7 @@ export function SignUp() {
           />
         </div>
         <div className=" w-full p-4 min-h-[500px] flex flex-col justify-center items-center">
-          <div className=" backdrop-blur-xs bg-white/5 border-1 border-white/5 p-8 rounded-lg space-y-4 w-[70%] flex flex-col items-center ">
+          <div className=" shadow shadow-xl shadow-white/10 backdrop-blur-xs bg-white/5 border-1 border-white/5 p-8 rounded-lg space-y-4 w-[70%] flex flex-col items-center ">
             <h1 className="text-white font-bold text-3xl">SignUp</h1>
             <Input className="dark text-white" placeholder="Username" />
             <Input className="dark text-white" placeholder="Email" />
