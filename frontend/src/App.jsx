@@ -4,6 +4,7 @@ import { HomePage } from "./Pages/HomePage"
 import { SignUpPage } from "./Pages/SignUpPage"
 import { SignInPage } from "./Pages/SignInPage"
 import { GlobalWrapper } from "./wrappers/GlobalWrapper"
+import { DashBoard } from "./Pages/DashBoard"
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
+          <Route path="/dashboard" element={<DashBoard/>}/>
         </Routes>
       </BrowserRouter>
   
