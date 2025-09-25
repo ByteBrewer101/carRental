@@ -10,6 +10,12 @@ export function SignIn(){
         nav("/signup")
     }
 
+    function handleSubmit(){
+     localStorage.setItem("access_token", "gfddsdesed")
+     nav("/dashboard")
+
+    }
+
     return (
       <>
         <div className="rounded-sm  z-10 w-[80%] flex justify-center p-4">
@@ -35,7 +41,7 @@ export function SignIn(){
               <h1 className="text-3xl font-bold text-white">SignIn</h1>
               <Input className="dark text-white" placeholder="Email" />
               <Input className="dark text-white" placeholder="Password" />
-              <Button className="w-[40%]" size="sm" variant={"outline"}>
+              <Button  onClick={handleSubmit} className="w-[40%]" size="sm" variant={"outline"}>
                 Submit
               </Button>
               <p className="text-white">Don't have an account?

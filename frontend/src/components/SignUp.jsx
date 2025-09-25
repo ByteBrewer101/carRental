@@ -44,7 +44,7 @@ export function SignUp() {
               <span className="ml-2">
                 <button
                   onClick={handleSignIn}
-                  className="text-blue-500 underline"
+                  className="text-blue-500 underline cursor-pointer"
                 >
                   Sign In
                 </button>

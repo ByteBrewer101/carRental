@@ -1,8 +1,11 @@
 import { MyCard } from "@/components/MyCard";
 import { NavBar } from "@/components/NavBar";
+import { AuthWrapper } from "@/wrappers/AuthWrappers";
 
 export function DashBoard(){
     return (
+      <AuthWrapper>
+
       <div className="bg-black min-h-screen">
         <div className="flex flex-col w-full justify-center items-center">
           <NavBar />
@@ -19,5 +22,6 @@ export function DashBoard(){
           </div>
         </div>
       </div>
+      </AuthWrapper>
     );
 }
