@@ -50,7 +50,7 @@ async function Singin(req, res) {
     if (existance) {
       const pwd = userDetails.password;
       const currUser = await userModel.findOne({
-        username: userDetails.username,
+        // username: userDetails.username,
         email: userDetails.email,
       });
       const hash_pwd = currUser.password;

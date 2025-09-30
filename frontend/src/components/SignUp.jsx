@@ -65,6 +65,8 @@ export function SignUp() {
     validateField("role", value);
   };
 
+
+
   return (
     <div className="rounded-sm z-10 w-[80%] flex justify-center p-4">
       {/* Morphing Text Section */}
@@ -142,7 +144,7 @@ export function SignUp() {
           {/* Submit Button */}
           <Button
             onClick={() => handleSignUp(user)}
-            className="w-[40%] flex justify-center items-center gap-2"
+            className="w-[40%] cursor-pointer flex justify-center items-center gap-2"
             size="sm"
             variant="outline"
             disabled={loading || Object.values(errors).some((e) => e !== "")}
