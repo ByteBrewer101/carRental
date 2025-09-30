@@ -6,6 +6,7 @@ import { SignInPage } from "./Pages/SignInPage"
 import { GlobalWrapper } from "./wrappers/GlobalWrapper"
 import { DashBoard } from "./Pages/DashBoard"
 import { TestPage } from "./Pages/TestPage"
+import { SellerDashBoard } from "./Pages/SellerDashBoard"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/test" element={<TestPage />} />
+          <Route path="/seller" element={<SellerDashBoard />} />
         </Routes>
       </BrowserRouter>
     </>

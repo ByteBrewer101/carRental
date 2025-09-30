@@ -11,17 +11,13 @@ import {
 
 export function SelectDemo({setUser}) {
   return (
-    <Select>
+    <Select
+      onValueChange={(value) => {
+        setUser(value);
+      }}
+    >
       <SelectTrigger className="w-full text-white  ">
-        <SelectValue
-          onChange={(e) => {
-            setUser((prev) => ({
-              ...prev,
-              role: e.target.value,
-            }));
-          }}
-          placeholder="Select your role"
-        />
+        <SelectValue placeholder="Select your role" />
       </SelectTrigger>
       <SelectContent className="dark">
         <SelectGroup>

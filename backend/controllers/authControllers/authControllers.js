@@ -22,6 +22,8 @@ async function SignUp(req, res) {
       if (token) {
         return res.status(200).json({
           msg: "user created successfully",
+          username: currUser.username,
+          role: currUser.type_of_user,
           token: `Bearer ${token}`,
         });
       } else {
@@ -61,6 +63,8 @@ async function Singin(req, res) {
         if (token) {
           return res.status(200).json({
             msg: "Signin successful",
+            username: currUser.username,
+            role: currUser.type_of_user,
             token: `Bearer ${token}`,
           });
         } else {

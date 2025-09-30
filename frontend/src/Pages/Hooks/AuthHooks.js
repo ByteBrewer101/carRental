@@ -24,10 +24,15 @@ export function useSignUpHooks() {
  
       const response = await axios.post(SignUpApi, currUser);
       const currData = response.data;
+      const tempUser = JSON.stringify({
+        username: currData.username,
+        role: currData.role
+      })
       setData(currData);
       const currToken = currData.token.split(' ')[1]
       
       localStorage.setItem("access_token",currToken)
+      localStorage.setItem("userData", tempUser)
       toast.success("User has been created");
       nav('/dashboard')
     } catch (e) {
@@ -49,17 +54,24 @@ export function useSignUpHooks() {
 export function useSigninHooks(){
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const nav = useNavigate()
 
   async function handleSignIn(user){
-    alert("Function running")
-    console.log(user);
     try{
       setLoading(true)
       const response = await axios.post(SignInApi, user)
-      console.log(response);
-
+      const currToken = response.data.token.split(' ')[1]
+      const currUser = JSON.stringify({
+        username: response.data.username,
+        role: response.data.role
+      })
+      localStorage.setItem("access_token", currToken)
+      localStorage.setItem("userData", currUser)
+      toast.success("Signin successful")
+      nav("/dashboard")
     }catch(e){
-      alert(e.message || "some error occured")
+      setError(e.message||"Error Occurred")
+      toast.error("Unable to signin")
     }finally{
       setLoading(false)
     }

@@ -49,6 +49,7 @@ export function NavBar(){
                 <Input className="text-white" placeholder="Search listing" />
               </div>
               <Dropdown />
+              <h1 className="text-white">Welcome, {JSON.parse(localStorage.getItem("userData")).username}</h1>
             </div>
           )}
         </div>

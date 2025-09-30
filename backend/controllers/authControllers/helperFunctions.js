@@ -17,7 +17,7 @@ async function checkPassword(user_pass, hashed_pass) {
 
 async function checkUserExistance(userDetails) {
   const currUser = await userModel.findOne({
-    username: userDetails.username,
+    // username: userDetails.username,
     email: userDetails.email,
   });
 
