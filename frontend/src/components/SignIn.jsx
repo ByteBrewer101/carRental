@@ -2,17 +2,24 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { MorphingText } from "./ui/morphing-text";
+import { useSigninHooks } from "@/Pages/Hooks/AuthHooks";
 
 export function SignIn(){
     
+    const {loading, error, handleSignIn}= useSigninHooks() 
     const nav = useNavigate()
     function handleSignUp(){
         nav("/signup")
     }
+    const tempUser = {
+      email: "atharva@example.com",
+      password: "StrongPass123!"
+    };
 
     function handleSubmit(){
-     localStorage.setItem("access_token", "gfddsdesed")
-     nav("/dashboard")
+    //  localStorage.setItem("access_token", "gfddsdesed")
+    //  nav("/dashboard")
+    handleSignIn(tempUser)
 
     }
 

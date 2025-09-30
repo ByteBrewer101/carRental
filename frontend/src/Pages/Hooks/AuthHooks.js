@@ -1,4 +1,4 @@
-import { SignUpApi } from "@/config/constants";
+import { SignInApi, SignUpApi } from "@/config/constants";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -22,8 +22,8 @@ export function useSignUpHooks() {
       setLoading(true);
       
  
-      const call = await axios.post(SignUpApi, currUser);
-      const currData = call.data;
+      const response = await axios.post(SignUpApi, currUser);
+      const currData = response.data;
       setData(currData);
       const currToken = currData.token.split(' ')[1]
       
@@ -47,5 +47,27 @@ export function useSignUpHooks() {
 
 
 export function useSigninHooks(){
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
+  async function handleSignIn(user){
+    alert("Function running")
+    console.log(user);
+    try{
+      setLoading(true)
+      const response = await axios.post(SignInApi, user)
+      console.log(response);
+
+    }catch(e){
+      alert(e.message || "some error occured")
+    }finally{
+      setLoading(false)
+    }
+  }
+  return{
+    loading,
+    error,
+    handleSignIn
+  }
 
 }
