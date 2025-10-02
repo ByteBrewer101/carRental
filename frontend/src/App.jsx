@@ -7,6 +7,7 @@ import { GlobalWrapper } from "./wrappers/GlobalWrapper"
 import { DashBoard } from "./Pages/DashBoard"
 import { TestPage } from "./Pages/TestPage"
 import { SellerDashBoard } from "./Pages/SellerDashBoard"
+import { Alerts } from "./Pages/Alerts"
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/test" element={<TestPage />} />
           <Route path="/seller" element={<SellerDashBoard />} />
+          <Route path="/alerts" element={<Alerts/>}/>
         </Routes>
       </BrowserRouter>
     </>

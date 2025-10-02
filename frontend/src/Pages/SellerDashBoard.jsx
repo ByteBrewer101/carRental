@@ -1,9 +1,8 @@
-import { DashboardRenderer } from "@/components/DashboardRenderer";
-import { MyCard } from "@/components/MyCard";
+
 import { NavBar } from "@/components/NavBar";
 import { SellerCard } from "@/components/SellerCard";
 import { FloatingDockDemo } from "@/components/SellerDock";
-import { Card } from "@/components/ui/card";
+
 
 export function SellerDashBoard() {
   return (
