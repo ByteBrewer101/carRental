@@ -13,7 +13,7 @@ export function SignUp() {
     username: "",
     email: "",
     password: "",
-    role: "",
+    type_of_user: "",
   });
   const [errors, setErrors] = useState({});
 
@@ -61,7 +61,7 @@ export function SignUp() {
 
   // For SelectDemo
   const handleRoleChange = (value) => {
-    setUser((prev) => ({ ...prev, role: value }));
+    setUser((prev) => ({ ...prev, type_of_user: value }));
     validateField("role", value);
   };
 
