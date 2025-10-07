@@ -3,37 +3,42 @@ const { carModel } = require("./carModel");
 const { userModel } = require("./userModel");
 
 const ordersSchema = new mongoose.Schema({
-    car_id:{
-        type: mongoose.ObjectId,
-        ref: carModel,
-        required: true
-    },
-    user_id:{
-        type: mongoose.ObjectId,
-        ref: userModel,
-        required: true
-    },
-    seller_id:{
-        type: mongoose.ObjectId,
-        ref: userModel,
-        required: true
-    },
-    date_range:{
-        type: Number,
-        required: true
-    },
-    total_amount:{
-        type: Number,
-        required: true
-    },
-    otp:{
-        type: Number,
-        required: true
-    }
-})
+  car_id: {
+    type: mongoose.ObjectId,
+    ref: carModel,
+    required: true,
+  },
+  user_id: {
+    type: mongoose.ObjectId,
+    ref: userModel,
+    required: true,
+  },
+  seller_id: {
+    type: mongoose.ObjectId,
+    ref: userModel,
+    required: true,
+  },
+  date_range: {
+    type: Number,
+    required: true,
+  },
+  total_amount: {
+    type: Number,
+    required: true,
+  },
+  otp: {
+    type: Number,
+    required: true,
+  },
+  status: {
+    type: String,
+    enum: ["PendingApproval", "ActiveOrders", "Completed", "Cancelled"],
+    required: true,
+  },
+});
 
-const ordersModel = mongoose.model("ordersModel", ordersSchema)
+const ordersModel = mongoose.model("ordersModel", ordersSchema);
 
 module.exports = {
-    ordersModel
-}
+  ordersModel,
+};

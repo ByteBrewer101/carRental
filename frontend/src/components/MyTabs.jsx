@@ -3,7 +3,7 @@ import { Global_Context } from "@/ContextAPI/GlobalContext";
 import { useContext } from "react";
 
 export function MyTabs() {
-  const {tabState, setTabState} = useContext(Global_Context)
+  const { tabState, setTabState } = useContext(Global_Context);
   return (
     <>
       <Tabs defaultValue={tabState} className="w-[400px]">
@@ -41,10 +41,6 @@ export function MyTabs() {
             Cancelled
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="account">
-          Make changes to your account here.
-        </TabsContent>
-        <TabsContent value="password">Change your password here.</TabsContent>
       </Tabs>
     </>
   );
