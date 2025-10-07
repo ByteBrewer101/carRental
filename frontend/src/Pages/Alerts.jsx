@@ -3,11 +3,24 @@ import { MyCard } from "@/components/MyCard";
 import { MyTabs } from "@/components/MyTabs";
 import { Global_Context } from "@/ContextAPI/GlobalContext";
 import { sampleData } from "@/utils/alertPageSample";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export function Alerts() {
+  
+  const [currData, setCurrData] = useState([])
+
   const {tabState} = useContext(Global_Context)
-  const sampleDatas = sampleData
+  useEffect(()=>{
+    function CardFilter(selectedTab) {
+      const sampleDatas = sampleData;
+      // eslint-disable-next-line no-unused-vars
+      const myData = sampleDatas.filter((i, k) => {
+        return i.status == selectedTab;
+      });
+      setCurrData(myData);
+    } 
+    CardFilter(tabState)
+  },[tabState])
   return (
     <div className="dark flex-col text-white flex justify-center items-center p-10">
       <div className="w-[70%] flex flex-col">
@@ -16,7 +29,7 @@ export function Alerts() {
           <MyTabs />
         </div>
         <div className="flex flex-col w-full space-y-4 mt-4">
-          {sampleDatas.map((data, index) => (
+          {currData.map((data, index) => (
             <ItemCard
               key={index}
               car_id={data.car_id}
