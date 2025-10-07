@@ -1,5 +1,5 @@
+import { AlertsCountCard } from "@/components/AlertsCountCard";
 import { ItemCard } from "@/components/ItemCard";
-import { MyCard } from "@/components/MyCard";
 import { MyTabs } from "@/components/MyTabs";
 import { Global_Context } from "@/ContextAPI/GlobalContext";
 import { sampleData } from "@/utils/alertPageSample";
@@ -9,10 +9,13 @@ export function Alerts() {
   
   const [currData, setCurrData] = useState([])
 
+
   const {tabState} = useContext(Global_Context)
+  const {status, setStatus} = useContext(Global_Context)
+  const sampleDatas = sampleData;
   useEffect(()=>{
     function CardFilter(selectedTab) {
-      const sampleDatas = sampleData;
+     
       // eslint-disable-next-line no-unused-vars
       const myData = sampleDatas.filter((i, k) => {
         return i.status == selectedTab;
@@ -20,11 +23,22 @@ export function Alerts() {
       setCurrData(myData);
     } 
     CardFilter(tabState)
-  },[tabState])
+  },[tabState, sampleDatas])
+
+  useEffect(() => {
+    const newStatus = { ...status }; // or initialize fresh if needed
+
+    sampleDatas.forEach((item) => {
+      const key = item.status;
+      newStatus[key] = (newStatus[key] || 0) + 1;
+    });
+
+    setStatus(newStatus);
+  }, [sampleDatas]);
+
   return (
     <div className="dark flex-col text-white flex justify-center items-center p-10">
       <div className="w-[70%] flex flex-col">
-        This is alert Page
         <div className="p-3 flex justify-between items-center rounded-lg">
           <MyTabs />
         </div>
@@ -41,14 +55,12 @@ export function Alerts() {
               status={data.status}
             />
           ))}
-
-          <h1>{tabState}</h1>
         </div>
         <div className="gap-4 mt-4 grid grid-cols-4">
-          <MyCard />
-          <MyCard />
-          <MyCard />
-          <MyCard />
+          <AlertsCountCard title="Pending Approval" keyName={"PendingApproval"} colors="yellow"/>
+          <AlertsCountCard title="Active Orders" keyName={"ActiveOrders"} colors="green"/>
+          <AlertsCountCard title="Completed" keyName={"Completed"} colors="blue"/>
+          <AlertsCountCard title="Cancelled" keyName={"Cancelled"} colors="red"/>
         </div>
       </div>
     </div>
