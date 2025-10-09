@@ -38,7 +38,7 @@ export function Alerts() {
   }, [sampleDatas]);
 
   return (
-    <div className="dark flex-col text-white flex justify-center items-center p-10">
+    <div className="dark  flex-col text-white flex justify-start items-center p-10">
       <div className="w-[70%] flex flex-col">
         <div className="p-3 flex justify-between items-center rounded-lg">
           <MyTabs />
@@ -80,9 +80,7 @@ export function Alerts() {
           />
         </div>
       </div>
-        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-          <FloatingDockDemo />
-        </div>
+      
     </div>
   );
 }

@@ -5,9 +5,11 @@ import { SignUpPage } from "./Pages/SignUpPage"
 import { SignInPage } from "./Pages/SignInPage"
 import { GlobalWrapper } from "./wrappers/GlobalWrapper"
 import { DashBoard } from "./Pages/DashBoard"
-import { TestPage } from "./Pages/TestPage"
+import { AddCar } from "./Pages/TestPage"
 import { SellerDashBoard } from "./Pages/SellerDashBoard"
 import { Alerts } from "./Pages/Alerts"
+import { AddCarPage } from "./Pages/AddCar"
+
 
 
 function App() {
@@ -20,9 +22,10 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/dashboard" element={<DashBoard />} />
-          <Route path="/test" element={<TestPage />} />
+          <Route path="/test" element={<AddCar/>} />
           <Route path="/seller" element={<SellerDashBoard />} />
-          <Route path="/alerts" element={<Alerts/>}/>
+          <Route path="/alerts" element={<Alerts />} />
+          <Route path="/addcar" element={<AddCarPage/>} />
         </Routes>
       </BrowserRouter>
     </>
